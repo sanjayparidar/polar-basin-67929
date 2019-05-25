@@ -13,8 +13,8 @@ router.post("/",function (req, res){
 		
 		var options = {
 			"sort": [['date','desc']],
-			"limit": 1,
-			"skip": (page - 1) * 1
+			"limit": 10,
+			"skip": (page - 1) * 10
 		}
 		console.log(options);
 		product.findAllByLimit(options, 'product', function(err, result){
