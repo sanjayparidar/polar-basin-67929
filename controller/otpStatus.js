@@ -18,9 +18,17 @@ router.post("/",function (req, res){
 				}
 				
 				if(result.length){
-					data.data = result[0];
-					data.status = 200;
-					res.send(data);					
+					user.updateWhere({$or:[{mobile : request.mobile},{email : request.mobile}]}, {status : request.status}, 'user', function(err, results){
+						if(err){
+							data.message = 'Invalide Request';
+							data.status = 300;
+							res.send(data);
+						}
+						
+						data.message = 'success';
+						data.status = 200;
+						res.send(data);
+					});
 				}else{
 					data.message = 'Invalide Request';
 					data.status = 300;

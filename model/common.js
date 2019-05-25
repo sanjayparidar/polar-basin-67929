@@ -19,7 +19,7 @@ module.exports.insert=function(obj, collectionName, cb){
 	});
 }
 
-module.exports.updateWhere=function(where, obj, cb, collectionName){
+module.exports.updateWhere=function(where, obj, collectionName, cb){
 	connection.init(function(err, client){
 		var db = client.db(config.dbName);
 		db.collection(collectionName).update(where, {$set : obj}, cb);
