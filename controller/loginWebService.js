@@ -10,7 +10,7 @@ router.post("/",function (req, res){
 	var data={ };
 	if(request.mobile){
 		if(request.password){
-			user.findWhere({mobile : request.mobile,password : request.password}, 'user', function(err, result){
+			user.findWhere({$or:[{mobile : request.mobile,password : request.password},{email : request.mobile,password : request.password}]}, 'user', function(err, result){
 				if(err){
 					data.message = 'Invalide Request';
 					data.status = 300;
@@ -18,9 +18,15 @@ router.post("/",function (req, res){
 				}
 				
 				if(result.length){
-					data.data = result[0];
-					data.status = 200;
-					res.send(data);
+					if(result[0].status){
+						data.data = result[0];
+						data.status = 200;
+						res.send(data);
+					}else{
+						data.message = 'otp verification pending';
+						data.status = 300;
+						res.send(data);
+					}
 				}else{
 					data.message = 'Invalide Request';
 					data.status = 300;
