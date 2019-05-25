@@ -24,6 +24,7 @@ router.post("/",function (req, res){
 						res.send(data);
 					}else{
 						data.message = 'otp verification pending';
+						data.otp = result[0].otp;
 						data.status = 300;
 						res.send(data);
 					}

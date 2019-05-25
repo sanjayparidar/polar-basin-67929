@@ -5,6 +5,7 @@ router.use('/loginWebService',require("./loginWebService"));
 router.use('/signupWebService',require("./signupWebService"));
 router.use('/adminLogin',require("./adminlogin"));
 router.use('/otpStatus',require("./otpStatus"));
+router.use('/addProduct',require("./addProduct"));
 
 router.use('/',function(req, res){
 	var data={ };
