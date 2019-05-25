@@ -9,21 +9,13 @@ var moment = require('moment');
 router.post("/",function (req, res){
 	var request = req.body;
 	var data={ };
-	if(request.product_name){
+	if(request.category_name){
 		var insertData = {};
-		insertData.product_name = request.product_name;
-		insertData.company_name = request.company_name;
-		insertData.image = request.image;
-		insertData.description = request.description;
-		insertData.category = request.category;
-		insertData.quantity = request.quantity;
-		insertData.unit = request.unit;
-		insertData.stock_status = request.stock_status;
-		insertData.price = request.price;
+		insertData.category_name = request.category_name;
 		insertData.date = moment().format('YYYY-MM-DD HH:mm:ss');
 		insertData.status = 0;
 		
-		product.insert(insertData, 'product', function(err, result){
+		product.insert(insertData, 'product_category', function(err, result){
 			if(err){
 				data.message = 'Invalide Request';
 				data.status = 300;
