@@ -8,6 +8,7 @@ router.use('/otpStatus',require("./otpStatus"));
 router.use('/addProductCategory',require("./addProductCategory"));
 router.use('/addProduct',require("./addProduct"));
 router.use('/productList',require("./productList"));
+router.use('/productCategoryList',require("./productCategoryList"));
 
 router.use('/',function(req, res){
 	var data={ };
