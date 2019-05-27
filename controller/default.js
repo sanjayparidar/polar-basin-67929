@@ -10,6 +10,7 @@ router.use('/adminLogin',require("./adminlogin"));
 router.use('/addProduct',require("./addProduct"));
 router.use('/productList',require("./productList"));
 router.use('/getProductById',require("./getProductById"));
+router.use('/updateProduct',require("./updateProduct"));
 
 router.use('/addProductCategory',require("./addProductCategory"));
 router.use('/productCategoryList',require("./productCategoryList"));
