@@ -14,6 +14,8 @@ router.use('/updateProduct',require("./updateProduct"));
 
 router.use('/addProductCategory',require("./addProductCategory"));
 router.use('/productCategoryList',require("./productCategoryList"));
+router.use('/getProducCategorytById',require("./getProducCategorytById"));
+router.use('/updateProductCategory',require("./updateProductCategory"));
 
 router.use('/',function(req, res){
 	var data={ };
