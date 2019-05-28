@@ -17,6 +17,11 @@ router.use('/productCategoryList',require("./productCategoryList"));
 router.use('/getProducCategorytById',require("./getProducCategorytById"));
 router.use('/updateProductCategory',require("./updateProductCategory"));
 
+router.use('/addCoupon',require("./addCoupon"));
+router.use('/couponList',require("./couponList"));
+router.use('/getCouponById',require("./getCouponById"));
+router.use('/updateCoupon',require("./updateCoupon"));
+
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';
