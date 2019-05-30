@@ -5,7 +5,7 @@ const { check,validationResult } = require('express-validator/check');
 var jwt=require("jsonwebtoken");
 var Mongo=require("mongodb");
 
-router.post("/",function (req, res){
+router.get("/",function (req, res){
 	var data={ };
 
 		product.findWhere('{status : 0}', 'product_category', function(err, result){
