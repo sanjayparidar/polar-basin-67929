@@ -5,6 +5,7 @@ router.use('/loginWebService',require("./loginWebService"));
 router.use('/signupWebService',require("./signupWebService"));
 router.use('/otpStatus',require("./otpStatus"));
 router.use('/resendOtp',require("./resendOtp"));
+router.use('/forgotPassword',require("./forgotPassword"));
 
 router.use('/adminLogin',require("./adminlogin"));
 
