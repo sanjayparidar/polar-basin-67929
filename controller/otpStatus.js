@@ -27,6 +27,7 @@ router.post("/",function (req, res){
 						
 						data.message = 'success';
 						data.status = 200;
+						data.details = result[0];
 						res.send(data);
 					});
 				}else{
