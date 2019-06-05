@@ -5,7 +5,7 @@ const { check,validationResult } = require('express-validator/check');
 var jwt=require("jsonwebtoken");
 var Mongo=require("mongodb");
 var moment = require('moment');
-var path = require('path');
+//var path = require('path');
 
 router.post("/",function(req, res){
 	console.log(req.files);

@@ -1,10 +1,14 @@
 var express = require("express");
 var app = express();
 var bodyparser = require("body-parser");
+var path = require('path');
+var fs = require('fs');
 app.use(bodyparser.urlencoded({ extended: true }));
 
 var upload = require('express-fileupload');
-app.use(express.static(__dirname+"/images"));
+app.set('views', path.join(__dirname, 'images'));
+app.set('view engine', 'jade');
+app.use(express.static(__dirname+"images"));
 
 app.use(express.json());
 app.use(bodyparser());

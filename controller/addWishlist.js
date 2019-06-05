@@ -11,6 +11,7 @@ router.post("/",function(req, res){
 	var data={ };
 	if(request.product_name){
 		var insertData = {};
+		insertData.product_id = request.product_id;
 		insertData.product_name = request.product_name;
 		insertData.company_name = request.company_name;
 		insertData.description = request.description;
