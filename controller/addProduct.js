@@ -5,7 +5,7 @@ const { check,validationResult } = require('express-validator/check');
 var jwt=require("jsonwebtoken");
 var Mongo=require("mongodb");
 var moment = require('moment');
-//var path = require('path');
+var path = require('path');
 
 router.post("/",function(req, res){
 	console.log(req.files);
@@ -27,7 +27,11 @@ router.post("/",function(req, res){
 		// var newname = insertData.date+file.name;
 		var newname = file.name;
 		var filepath = path.resolve("images/"+newname);
-        file.mv(filepath);
+        file.mv(filepath,function(err){
+			if(err){
+				console.log(err)
+			}
+		});
         insertData.image = newname;
 		
 		product.insert(insertData, 'product', function(err, result){
