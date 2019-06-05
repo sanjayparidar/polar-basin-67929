@@ -6,9 +6,7 @@ var fs = require('fs');
 app.use(bodyparser.urlencoded({ extended: true }));
 
 var upload = require('express-fileupload');
-app.set('views', path.join(__dirname, 'images'));
-app.set('view engine', 'jade');
-app.use(express.static(__dirname+"images"));
+app.use(express.static(__dirname+"/images"));
 
 app.use(express.json());
 app.use(bodyparser());
