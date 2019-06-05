@@ -9,7 +9,7 @@ var moment = require('moment');
 router.post("/",function(req, res){
 	var request = req.body;
 	var data={ };
-	wishlist.findWhere({product_id : request.product_id}, 'wishlist', function(err, result){
+	wishlist.findWhere({product_id : request.product_id,user_id : request.user_id}, 'wishlist', function(err, result){
 		if(err){
 			data.message = 'Invalide Request';
 			data.status = 300;
@@ -24,6 +24,7 @@ router.post("/",function(req, res){
 			if(request.product_name){
 				var insertData = {};
 				insertData.product_id = request.product_id;
+				insertData.user_id = request.user_id;
 				insertData.product_name = request.product_name;
 				insertData.company_name = request.company_name;
 				insertData.description = request.description;
