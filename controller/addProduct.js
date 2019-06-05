@@ -10,6 +10,7 @@ var moment = require('moment');
 router.post("/",function(req, res){
 	console.log(req.files);
 	var request = req.body;
+	console.log(request)
 	var data={ };
 	if(req.files){
 		var insertData = {};
