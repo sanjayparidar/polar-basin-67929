@@ -25,6 +25,8 @@ router.use('/couponList',require("./couponList"));
 router.use('/getCouponById',require("./getCouponById"));
 router.use('/updateCoupon',require("./updateCoupon"));
 
+router.use('/addWishlist',require("./addWishlist"));
+
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';

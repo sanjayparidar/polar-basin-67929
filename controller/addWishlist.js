@@ -1,16 +1,15 @@
 var express=require("express");
 var router=express.Router();
-var product = require("../model/common");
+var wishlist = require("../model/common");
 const { check,validationResult } = require('express-validator/check');
 var jwt=require("jsonwebtoken");
 var Mongo=require("mongodb");
 var moment = require('moment');
 
 router.post("/",function(req, res){
-	console.log(req.files);
 	var request = req.body;
 	var data={ };
-	if(req.files){
+	if(request.product_name){
 		var insertData = {};
 		insertData.product_name = request.product_name;
 		insertData.company_name = request.company_name;
@@ -18,17 +17,11 @@ router.post("/",function(req, res){
 		insertData.category = request.category;
 		insertData.quantity = request.quantity;
 		insertData.unit = request.unit;
-		insertData.stock_status = request.stock_status;
 		insertData.price = request.price;
 		insertData.date = moment().format('YYYY-MM-DD HH:mm:ss');
-		insertData.status = 0;
-		var file = req.files.image;
-		var newname = insertData.date+file.name;
-		var filepath = path.resolve("./images/"+newname);
-        file.mv(filepath);
-        insertData.image = newname;
+        insertData.image = request.image;
 		
-		product.insert(insertData, 'product', function(err, result){
+		wishlist.insert(insertData, 'wishlist', function(err, result){
 			if(err){
 				data.message = 'Invalide Request';
 				data.status = 300;
