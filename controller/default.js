@@ -6,6 +6,7 @@ router.use('/signupWebService',require("./signupWebService"));
 router.use('/otpStatus',require("./otpStatus"));
 router.use('/resendOtp',require("./resendOtp"));
 router.use('/forgotPassword',require("./forgotPassword"));
+router.use('/updateUser',require("./updateUser"));
 
 router.use('/adminLogin',require("./adminlogin"));
 
@@ -27,6 +28,7 @@ router.use('/updateCoupon',require("./updateCoupon"));
 
 router.use('/addWishlist',require("./addWishlist"));
 router.use('/wishlist',require("./wishlist"));
+router.use('/deleteWishlist',require("./deleteWishlist"));
 
 router.use('/',function(req, res){
 	var data={ };
