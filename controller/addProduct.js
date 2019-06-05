@@ -27,7 +27,8 @@ router.post("/",function(req, res){
 		var file = req.files.image;
 		// var newname = insertData.date+file.name;
 		var newname = file.name;
-		var filepath = path.resolve("/../images/"+newname);
+		var filepath = path.resolve("images/"+newname);
+		console.log(filepath)
         file.mv(filepath,function(err){
 			if(err){
 				console.log(err);
