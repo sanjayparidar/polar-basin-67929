@@ -24,7 +24,8 @@ router.post("/",function(req, res){
 		insertData.date = moment().format('YYYY-MM-DD HH:mm:ss');
 		insertData.status = 0;
 		var file = req.files.image;
-		var newname = insertData.date+file.name;
+		// var newname = insertData.date+file.name;
+		var newname = file.name;
 		var filepath = path.resolve("images/"+newname);
         file.mv(filepath);
         insertData.image = newname;
