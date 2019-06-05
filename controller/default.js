@@ -26,6 +26,7 @@ router.use('/getCouponById',require("./getCouponById"));
 router.use('/updateCoupon',require("./updateCoupon"));
 
 router.use('/addWishlist',require("./addWishlist"));
+router.use('/wishlist',require("./wishlist"));
 
 router.use('/',function(req, res){
 	var data={ };
