@@ -4,7 +4,7 @@ var bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({ extended: true }));
 
 var upload = require('express-fileupload');
-app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname+"/images"));
 
 app.use(express.json());
 app.use(bodyparser());
