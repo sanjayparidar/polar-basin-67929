@@ -7,6 +7,7 @@ router.post('/',function(req,res){
     admin.insert(req.body,'customerservice',function(err,result){
         data.status=200;
        data.data=result;
+       res.send(data)
        
     });
 });
