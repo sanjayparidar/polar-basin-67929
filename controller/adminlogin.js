@@ -6,6 +6,7 @@ var jwt=require("jsonwebtoken");
 var Mongo=require("mongodb");
 
 router.post("/", function(req, res) {
+	console.log("thisis host name",req.headers.host,"this is host name")
 	var request = req.body;
 	var data={ };
 	if(request.email){
