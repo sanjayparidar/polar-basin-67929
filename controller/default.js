@@ -30,6 +30,8 @@ router.use('/addWishlist',require("./addWishlist"));
 router.use('/wishlist',require("./wishlist"));
 router.use('/deleteWishlist',require("./deleteWishlist"));
 
+router.use('contatctus',require("./contactus"));
+
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';
