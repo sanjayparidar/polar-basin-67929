@@ -22,6 +22,7 @@ router.post('update',function(req,res){
 router.get('/',function(req,res){
     var data={ };
     admin.findWhere({status:0},'contactus',function(err,result){
+        console.log("+++++++++++hello++++++++++")
         data.status=200
        data.data=result;
        res.send(data);
