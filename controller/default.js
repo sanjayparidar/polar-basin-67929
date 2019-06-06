@@ -30,7 +30,7 @@ router.use('/addWishlist',require("./addWishlist"));
 router.use('/wishlist',require("./wishlist"));
 router.use('/deleteWishlist',require("./deleteWishlist"));
 
-router.use('contatctus',require("./contactus"));
+router.use('/contactus',require("./contactus"));
 
 router.use('/',function(req, res){
 	var data={ };
