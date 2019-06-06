@@ -25,6 +25,7 @@ app.use(function (req, res, next) {
 app.use(require("./controller/default"));
 
 app.listen(process.env.PORT || 2000 ,function(){
+    console.log(request.headers.host)
 	console.log("server on 2000")
 })
 
