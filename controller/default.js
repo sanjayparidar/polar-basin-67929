@@ -32,6 +32,8 @@ router.use('/deleteWishlist',require("./deleteWishlist"));
 
 router.use('/contactus',require("./contactus"));
 
+router.use('/customerservice',require('./customerservice'));
+
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';
