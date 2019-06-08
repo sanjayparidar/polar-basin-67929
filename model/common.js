@@ -36,6 +36,12 @@ module.exports.deleteData = function(obj, collectionName, cb){
 	});
 }
 
+module.exports.find=function(collectionName,cb){
+	connection.init(function(err, client){
+		var db = client.db(config.dbName);
+		db.collection(collectionName).find().toArray(cb);
+	});
+}
 
 // var myquery = { address: 'Mountain 21' };
 //   dbo.collection("customers").deleteOne(myquery, function(err, obj) {

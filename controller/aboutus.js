@@ -9,4 +9,10 @@ router.post('/',function(req,res){
        })
 });
 
+router.get('/',function(req,res){
+    about.find('aboutus',function(err,result){
+        res.send(result)
+    });
+});
+
 module.exports=router;
