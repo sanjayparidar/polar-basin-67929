@@ -3,7 +3,7 @@ var router=express.Router();
 var about=require('../model/common');
 var Mongo=require('mongodb');
 router.post('/',function(req,res){
-         console.log(sssssssssssssssssssssssssssssssssssssss)
+         
        about.updateWhere({_id:Mongo.ObjectId(req.body.id)},req.body,"aboutus",function(err,result){
         res.send(result)
        })
