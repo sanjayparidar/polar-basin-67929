@@ -21,6 +21,10 @@ router.post("/",function (req, res){
 				if(result.length){
 					if(result[0].status){
 						
+						data.data = result[0];
+						data.status = 200;
+						res.send(data);
+					}else{
 						var msge = "Your one time password is : "+result[0].otp;
 						var options = {
 							url: 'http://sms.pnpuniverse.com/api/v4/?api_key=Ae08d6b71079725f135ba5375c69d0abd&method=sms&message='+msge+'&to='+result[0].mobile+'&sender=RICWAL',
@@ -31,10 +35,6 @@ router.post("/",function (req, res){
 						};
 						requestCurl(options, function(resreq, resres){});
 						
-						data.data = result[0];
-						data.status = 200;
-						res.send(data);
-					}else{
 						data.message = 'otp verification pending';
 						data.otp = result[0].otp;
 						data.status = 300;
