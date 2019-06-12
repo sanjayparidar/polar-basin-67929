@@ -4,7 +4,7 @@ var about=require('../model/common');
 var Mongo=require('mongodb');
 router.post('/',function(req,res){
          console.log(req.body)
-       about.updateWhere({_id:Mongo.ObjectId(req.body.id)},req.body,"aboutus",function(err,result){
+       about.insert(req.body,"aboutus",function(err,result){
         //    console.log(result)
         res.send(result)
        })
