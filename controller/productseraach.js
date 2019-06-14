@@ -12,7 +12,7 @@ router.post("/",function(req,res){
        if(req.body.searchproduct){
            
         
-           console.log(productname)
+        
            var query= {'product_name': {'$regex': req.body.searchproduct}}
         //    {product_name: productname }
           
