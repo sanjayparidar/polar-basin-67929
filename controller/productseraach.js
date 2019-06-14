@@ -10,6 +10,7 @@ router.post("/",function(req,res){
         var query={category:req.body.category}
        }
        if(req.body.searchproduct){
+           console.log(searchproduct)
            var query={product_name: parseInt("/"+req.body.searchproduct+"/")}
        }
     }
