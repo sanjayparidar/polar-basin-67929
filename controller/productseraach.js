@@ -10,10 +10,12 @@ router.post("/",function(req,res){
         var query={category:req.body.category}
        }
        if(req.body.searchproduct){
-           console.log(req.body.searchproduct,"first")
-           var productname=/+req.body.searchproduct+/
+           
+        
            console.log(productname)
-           var query={product_name: productname }
+           var query= {'product_name': {'$regex': req.body.searchproduct}}
+        //    {product_name: productname }
+          
            
        }
     }
