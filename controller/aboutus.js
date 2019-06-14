@@ -26,7 +26,7 @@ router.post('/delete',function(req,res){
 
 router.post('/edit',function(req,res){
     about.findWhere({_id:Mongo.ObjectID(req.body.id)},'aboutus',function(err,result){
-        res.send(data)
+        res.send(result)
     });
 });
 
