@@ -11,7 +11,8 @@ router.post("/",function(req,res){
        }
        if(req.body.searchproduct){
            console.log(req.body.searchproduct,"first")
-           var query={product_name: '/'+req.body.searchproduct+'/'}
+           var productname='/'+req.body.searchproduct+'/'
+           var query={product_name: /req.body.searchproduct/ }
            
        }
     }
