@@ -13,6 +13,7 @@ router.post("/",function(req,res){
            var query={product_name: "/"+req.body.searchproduct+"/"}
        }
     }
+    console.log(query)
    search.findWhere(query,'product',function(err,result){
        res.send(result)
    });
