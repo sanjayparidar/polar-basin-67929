@@ -4,20 +4,14 @@ var search=require("../model/common");
 
 router.post("/",function(req,res){
     if(req.body.category!='' && req.body.searchproduct!=''){
-     
+      var query={$and:[{category:req.body.category},{'product_name': {'$regex': req.body.searchproduct}}]}
     }else{
        if(req.body.category!=''){
         var query={category:req.body.category}
        }
        if(req.body.searchproduct){
-           
-        
-        
-           var query= {'product_name': {'$regex': req.body.searchproduct}}
-        //    {product_name: productname }
-          
-           
-       }
+             var query= {'product_name': {'$regex': req.body.searchproduct}}
+      }
     }
     console.log(query,"second")
    search.findWhere(query,'product',function(err,result){
