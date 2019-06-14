@@ -10,7 +10,7 @@ router.post("/",function(req,res){
         var query={category:req.body.category}
        }
        if(req.body.searchproduct){
-           var query={name: "/"+req.body.searchproduct+"/"}
+           var query={product_name: "/"+req.body.searchproduct+"/"}
        }
     }
    search.findWhere(query,'product',function(err,result){
