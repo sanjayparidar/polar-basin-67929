@@ -10,4 +10,28 @@ router.post('/',function(req,res){
     });
     
 });
+
+router.get('/',function(req,res){
+    order.find("orderhistory",function(err,result){
+        res.send(result)
+    });
+});
+
+
+router.post('/findorder',function(req,res){
+    order.findWhere({userid:req.body.userid},"orderhistory",function(err,result){
+        res.send(result)
+    });
+});
+
+
+router.post('/todayorder',function(req,res){
+    var date=moment().format('YYYY-MM-DD');
+    var query={$and:[{userid:req.body.userid},{'date': {'$regex':date,'$options': 'i'}}]}
+    order.findWhere(query,'orderhistory',function(err,result){
+        res.send(result)
+    });
+});
+
+
 module.exports=router
