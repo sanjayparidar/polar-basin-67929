@@ -12,6 +12,12 @@ router.post('/',function(req,res){
     });
 });
 
+router.get('/',function(req,res){
+    admin.find('customerservice',function(err,result){
+        res.send(result)
+    });
+});
+
 
 
 
