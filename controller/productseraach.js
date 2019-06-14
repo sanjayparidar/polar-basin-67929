@@ -10,11 +10,11 @@ router.post("/",function(req,res){
         var query={category:req.body.category}
        }
        if(req.body.searchproduct){
-           console.log(searchproduct)
+           console.log(req.body.searchproduct,"first")
            var query={product_name: parseInt("/"+req.body.searchproduct+"/")}
        }
     }
-    console.log(query)
+    console.log(query,"second")
    search.findWhere(query,'product',function(err,result){
        res.send(result)
    });
