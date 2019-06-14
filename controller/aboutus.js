@@ -16,7 +16,7 @@ router.get('/',function(req,res){
     });
 });
 
-router.post('/delete',function(res,res){
+router.post('/delete',function(req,res){
     about.deleteData({_id:Mongo.ObjectID(req.body.id)},'aboutus',function(err,result){
         var data={"response":'success'}
         res.send(data)
