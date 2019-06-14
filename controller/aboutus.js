@@ -16,5 +16,26 @@ router.get('/',function(req,res){
     });
 });
 
+router.post('/delete',function(res,res){
+    about.deleteData({_id:Mongo.ObjectID(req.body.id)},'aboutus',function(err,result){
+        var data={"response":'success'}
+        res.send(data)
+    });
+});
+
+
+router.post('/edit',function(req,res){
+    about.findWhere({_id:Mongo.ObjectID(req.body.id)},'aboutus',function(err,result){
+        res.send(data)
+    });
+});
+
+router.post('/update',function(req,res){
+    about.updateWhere({_id:Mongo.ObjectID(req.body.id)},req.body,'aboutus',function(err,result){
+        var data={response:"success"}
+        res.send(data)
+    });
+});
+
 
 module.exports=router;
