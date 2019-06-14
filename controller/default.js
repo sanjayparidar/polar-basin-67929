@@ -36,6 +36,8 @@ router.use('/customerservice',require('./customerservice'));
 
 router.use('/aboutus',require('./aboutus'));
 
+router.use('/search',require('./productseraach'));
+
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';
