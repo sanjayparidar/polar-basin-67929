@@ -25,7 +25,7 @@ router.post('/findorder',function(req,res){
                 productPrice=result[i].productPrice.split(','); 
                 var totalprice= 0;                            
               for (var i = 0; i < productPrice.length; i++) {  
-                totalprice += parseInt(productPrice[i]);         
+                totalprice += parseInt(productPrice[i],10);         
                }
                result[i].totalprice=totalprice;
                
@@ -54,7 +54,7 @@ router.post('/todayorder',function(req,res){
                 productPrice=result[i].productPrice.split(','); 
                 var totalprice= 0;                            
               for (var i = 0; i < productPrice.length; i++) {  
-                totalprice += parseInt(productPrice[i]);         
+                totalprice += parseInt(productPrice[i],10);         
                }
                result[i].totalprice=totalprice;
                
