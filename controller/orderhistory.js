@@ -1,7 +1,8 @@
 var express=require('express');
 var router=express.Router();
 var order=require('../model/common');
-var moment=require('moment')
+var moment=require('moment');
+var mongo=require('mongodb');
 router.post('/',function(req,res){
     req.body.date =moment().format('YYYY-MM-DD HH:mm:ss');
     req.body.orderstatus="ordered"
@@ -66,6 +67,13 @@ router.post('/todayorder',function(req,res){
         
     });
 });
+
+router.post('/update',function(req,res){
+    order.updateWhere({_id:mongo.ObjectID(req.body.id)},req.body,'orderhistory',function(err,result){
+        var data={"response":"success"}
+        res.send(data)
+    })
+})
 
 
 module.exports=router;
