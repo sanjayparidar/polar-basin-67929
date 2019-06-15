@@ -68,7 +68,7 @@ router.post('/todayorder',function(req,res){
     });
 });
 
-router.post('/update',function(req,res){
+router.post('/updatestatus',function(req,res){
     order.updateWhere({_id:mongo.ObjectID(req.body.id)},req.body,'orderhistory',function(err,result){
         var data={"response":"success"}
         res.send(data)
