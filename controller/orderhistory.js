@@ -20,7 +20,11 @@ router.get('/',function(req,res){
 
 router.post('/findorder',function(req,res){
     order.findWhere({userid:req.body.userid},"orderhistory",function(err,result){
-        res.send(result)
+        var data={ }
+        data.message="success";
+        data.status=200;
+        data.details=result
+        res.send(data)
     });
 });
 
