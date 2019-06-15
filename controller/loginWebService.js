@@ -18,7 +18,7 @@ router.post("/",function (req, res){
 					res.send(data);
 				}
 				
-				if(result.length){
+				if(result.length>0){
 					if(result[0].status){
 						
 						data.data = result[0];
@@ -42,7 +42,7 @@ router.post("/",function (req, res){
 					}
 				}else{
 					data.message = 'Invalide Request';
-					data.status = 300;
+					data.status = 400;
 					res.send(data);
 				}
 			});
