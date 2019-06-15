@@ -13,9 +13,21 @@ router.post("/",function(req,res){
              var query= {'product_name': {'$regex': req.body.searchproduct,'$options': 'i'}}
       }
     }
-    console.log(query,"second")
+    
    search.findWhere(query,'product',function(err,result){
-       res.send(result)
+       if(result.length>0){
+        var data={ }
+        data.message="success";
+        data.status=200;
+        data.details=result
+        res.send(data)
+       }else{
+        var data={};
+        data.message='empty';
+        data.status=300;
+        res.send(data)
+
+       }
    });
 });
 
