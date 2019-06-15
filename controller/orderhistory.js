@@ -21,15 +21,15 @@ router.get('/',function(req,res){
 router.post('/findorder',function(req,res){
     order.findWhere({userid:req.body.userid},"orderhistory",function(err,result){
         if(result.length>0){
-            for(var i=0;i<result.length;i++){
-                productPrice=result[i].productPrice.split(','); 
-                var totalprice= 0;                            
-              for (var i = 0; i < productPrice.length; i++) {  
-                totalprice += parseInt(productPrice[i],10);         
-               }
-               result[i].totalprice=totalprice;
+            // for(var i=0;i<result.length;i++){
+            //     productPrice=result[i].productPrice.split(','); 
+            //     var totalprice= 0;                            
+            //   for (var i = 0; i < productPrice.length; i++) {  
+            //     totalprice += parseInt(productPrice[i],10);         
+            //    }
+            //    result[i].totalprice=totalprice;
                
-            }
+            // }
             var data={ }
         data.message="success";
         data.status=200;
@@ -50,15 +50,7 @@ router.post('/todayorder',function(req,res){
     var query={$and:[{userid:req.body.userid},{'date': {'$regex':date,'$options': 'i'}}]}
     order.findWhere(query,'orderhistory',function(err,result){
         if(result.length>0){
-            for(var i=0;i<result.length;i++){
-                productPrice=result[i].productPrice.split(','); 
-                var totalprice= 0;                            
-              for (var i = 0; i < productPrice.length; i++) {  
-                totalprice += parseInt(productPrice[i],10);         
-               }
-               result[i].totalprice=totalprice;
-               
-            }
+            
             var data={ }
         data.message="success";
         data.status=200;
