@@ -20,11 +20,27 @@ router.get('/',function(req,res){
 
 router.post('/findorder',function(req,res){
     order.findWhere({userid:req.body.userid},"orderhistory",function(err,result){
-        var data={ }
+        if(result.length>0){
+            for(var i=0;i<result.length;i++){
+                productPrice=result[i].productPrice.split(','); 
+                var totalprice= 0;                            
+              for (var i = 0; i < productPrice.length; i++) {  
+                totalprice += parseInt(productPrice[i]);         
+               }
+               result[i].totalprice=totalprice;
+               
+            }
+            var data={ }
         data.message="success";
         data.status=200;
         data.details=result
         res.send(data)
+        }else{
+            var data={};
+            data.message='empty';
+            data.status=300;
+            res.send(data)
+        }
     });
 });
 
@@ -43,12 +59,18 @@ router.post('/todayorder',function(req,res){
                result[i].totalprice=totalprice;
                
             }
-        }
-        var data={ }
+            var data={ }
         data.message="success";
         data.status=200;
         data.details=result
         res.send(data)
+        }else{
+            var data={};
+            data.message='empty';
+            data.status=300;
+            res.send(data)
+        }
+        
     });
 });
 
