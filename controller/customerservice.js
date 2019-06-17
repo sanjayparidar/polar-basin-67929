@@ -45,6 +45,7 @@ router.post('/send_query_result',function(req,res){
           transporter.sendMail(mailOptions, function(error, info){
               var obj={ }
             if (error) {
+                obj.eroror=error
               obj.response="failed"
             } else {
                 
