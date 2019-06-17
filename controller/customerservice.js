@@ -25,34 +25,36 @@ router.get('/',function(req,res){
 router.post('/send_query_result',function(req,res){
      console.log(req.body)
      admin.findWhere({_id:mongo.ObjectId(req.body.id)},'user',function(err,result){
-         console.log(result);
-         console.log(result.email)
+         
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user:'sanjaypatidar2731@gmail.com',
+              pass: 'Sanjay@patidar95'
+            }
+          });
+          var mailOptions = {
+            from: 'sanjaypatidar2731@gmail.com',
+            to: result[0].email,
+            subject: req.body.title,
+            text: req.body.note
+          };
+          
+          
+          transporter.sendMail(mailOptions, function(error, info){
+              var obj={ }
+            if (error) {
+              obj.response="failed"
+            } else {
+              obj.response="success"
+            }
+            res.send(obj)
+          });
+         
+
+
      });
-    //  var transporter = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: {
-    //       user:'sanjaypatidar2731@gmail.com',
-    //       pass: 'Sanjay@patidar95'
-    //     }
-    //   });
-    //   var mailOptions = {
-    //     from: 'sanjaypatidar2731@gmail.com',
-    //     to: 'sanjaypatidar402@gmail.com',
-    //     subject: req.body.title,
-    //     text: req.body.note
-    //   };
-      
-      
-    //   transporter.sendMail(mailOptions, function(error, info){
-    //       var obj={ }
-    //     if (error) {
-    //       obj.response="failed"
-    //     } else {
-    //       obj.response="success"
-    //     }
-    //     res.send(obj)
-    //   });
-    
+     
 })
 
 
