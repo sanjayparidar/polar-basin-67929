@@ -1,6 +1,8 @@
 var express=require("express");
 var router=express.Router();
 var admin = require("../model/common");
+var nodemailer = require('nodemailer');
+
 
 router.post('/',function(req,res){
     var data={ };
@@ -21,7 +23,28 @@ router.get('/',function(req,res){
 
 router.post('/send_query_result',function(req,res){
      console.log(req.body)
-     res.send("success fully send")
+     var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'sanjaypatidar402@gmail.com',
+          pass: 'Sanjay@patidar96'
+        }
+      });
+      var mailOptions = {
+        from: 'sanjaypatidar402@gmail.com',
+        to: 'akashverma2792@gmail.com',
+        subject: 'Sending Email using Node.js',
+        text: 'That was easy!'
+      };
+      
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
     
 })
 
