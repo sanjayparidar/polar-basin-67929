@@ -29,7 +29,7 @@ router.post('/send_query_result',function(req,res){
         secure: false,
         requireTLS: true,
         auth: {
-          user: 'sanjaypatidar2731@gmail.com',
+          user:'sanjaypatidar2731@gmail.com',
           pass: 'Sanjay@patidar95'
         }
       });
