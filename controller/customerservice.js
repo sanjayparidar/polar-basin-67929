@@ -33,6 +33,7 @@ router.post('/send_query_result',function(req,res){
               pass: 'Sanjay@patidar95'
             }
           });
+          console.log(result[0].email,"++++++++++++SSSSSSSSSSSSSSSSSSSSSSSSSS")
           var mailOptions = {
             from: 'sanjaypatidar2731@gmail.com',
             to: result[0].email,
@@ -46,6 +47,7 @@ router.post('/send_query_result',function(req,res){
             if (error) {
               obj.response="failed"
             } else {
+                
               obj.response="success"
             }
             res.send(obj)
