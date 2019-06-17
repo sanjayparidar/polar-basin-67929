@@ -24,7 +24,7 @@ router.get('/',function(req,res){
 
 router.post('/send_query_result',function(req,res){
      console.log(req.body)
-     admin.findWhere({_id:mongo.ObjectId('5cf506c7e249f30017175ba9')},'user',function(err,result){
+     admin.findWhere({_id:mongo.ObjectId(req.body.id)},'user',function(err,result){
          console.log(result);
          console.log(result.email)
      });
