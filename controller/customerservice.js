@@ -37,18 +37,20 @@ router.post('/send_query_result',function(req,res){
       });
       var mailOptions = {
         from: 'sanjaypatidar2731@gmail.com',
-        to: 'akashverma2792@gmail.com',
+        to: 'sanjaypatidar402@gmail.com',
         subject: req.body.title,
         text: req.body.note
       };
       
       
       transporter.sendMail(mailOptions, function(error, info){
+          var obj={ }
         if (error) {
-          console.log(error);
+          obj.response="failed"
         } else {
-          console.log('Email sent: ' + info.response);
+          obj.response="success"
         }
+        res.send(obj)
       });
     
 })
