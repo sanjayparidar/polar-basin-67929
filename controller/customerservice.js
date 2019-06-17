@@ -24,10 +24,7 @@ router.get('/',function(req,res){
 router.post('/send_query_result',function(req,res){
      console.log(req.body)
      var transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        requireTLS: true,
+        service: 'gmail',
         auth: {
           user:'sanjaypatidar2731@gmail.com',
           pass: 'Sanjay@patidar95'
