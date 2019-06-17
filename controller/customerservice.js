@@ -28,30 +28,30 @@ router.post('/send_query_result',function(req,res){
          console.log(result);
          console.log(result.email)
      });
-     var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user:'sanjaypatidar2731@gmail.com',
-          pass: 'Sanjay@patidar95'
-        }
-      });
-      var mailOptions = {
-        from: 'sanjaypatidar2731@gmail.com',
-        to: 'sanjaypatidar402@gmail.com',
-        subject: req.body.title,
-        text: req.body.note
-      };
+    //  var transporter = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: {
+    //       user:'sanjaypatidar2731@gmail.com',
+    //       pass: 'Sanjay@patidar95'
+    //     }
+    //   });
+    //   var mailOptions = {
+    //     from: 'sanjaypatidar2731@gmail.com',
+    //     to: 'sanjaypatidar402@gmail.com',
+    //     subject: req.body.title,
+    //     text: req.body.note
+    //   };
       
       
-      transporter.sendMail(mailOptions, function(error, info){
-          var obj={ }
-        if (error) {
-          obj.response="failed"
-        } else {
-          obj.response="success"
-        }
-        res.send(obj)
-      });
+    //   transporter.sendMail(mailOptions, function(error, info){
+    //       var obj={ }
+    //     if (error) {
+    //       obj.response="failed"
+    //     } else {
+    //       obj.response="success"
+    //     }
+    //     res.send(obj)
+    //   });
     
 })
 
