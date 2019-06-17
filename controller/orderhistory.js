@@ -72,8 +72,8 @@ router.post('/updatestatus',function(req,res){
     order.updateWhere({_id:mongo.ObjectID(req.body.id)},req.body,'orderhistory',function(err,result){
         var data={"response":"success"}
         res.send(data)
-    })
-})
+    });
+});
 
 
 module.exports=router;

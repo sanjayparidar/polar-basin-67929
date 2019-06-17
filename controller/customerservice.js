@@ -20,7 +20,8 @@ router.get('/',function(req,res){
 
 
 router.post('/send_query_result',function(req,res){
-
+     console.log(req.body)
+     res.send("success fully send")
     
 })
 
