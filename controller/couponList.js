@@ -49,8 +49,8 @@ router.post("/get",function (req, res){
 			"skip": (page - 1) * 10
 			}
 			var todayDate = new Date().toISOString().slice(0,10)
-	          console.log(todayDate,"sssssssssssssssssssssss88888888888888888888888")
-		coupon.findwhereAllByLimit({'end_date': { $gte:'2019-06-20'}},options,'coupon', function(err, result){
+	          
+		coupon.findwhereAllByLimit({'end_date': { $gte:todayDate}},options,'coupon', function(err, result){
 			if(err){
 				data.message = 'Invalide Request';
 				data.status = 300;
