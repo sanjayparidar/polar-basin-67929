@@ -10,7 +10,7 @@ router.post('/',function(req,res){
 });
 
 router.get('/',function(req,res){
-    subcategory.find('subcategory',function(err,result){
+    subcategory.findaggregate('subcategory',function(err,result){
         res.send(result)
     });
 });
