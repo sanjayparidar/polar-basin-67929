@@ -29,6 +29,13 @@ module.exports.findAllByLimit = function(obj, collectionName, cb){
 	});
 }
 
+module.exports.findwhereAllByLimit = function(where,obj, collectionName, cb){
+	connection.init(function(err, client){
+		var db = client.db(config.dbName);
+		db.collection(collectionName).find({where},obj).toArray(cb);
+	});
+}
+
 module.exports.deleteData = function(obj, collectionName, cb){
 	connection.init(function(err, client){
 		var db = client.db(config.dbName);

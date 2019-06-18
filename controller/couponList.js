@@ -46,13 +46,13 @@ router.post("/get",function (req, res){
 		var options = {
 			"sort": [['date','desc']],
 			"limit": 10,
-			"skip": (page - 1) * 10,
-			'end_date': { $gte:'2019-06-20'}
+			"skip": (page - 1) * 10
+			
 			
 		}
 	      
 	  
-		coupon.findAllByLimit(options,'coupon', function(err, result){
+		coupon.findwhereAllByLimit({'end_date': { $gte:'2019-06-20'}},options,'coupon', function(err, result){
 			if(err){
 				data.message = 'Invalide Request';
 				data.status = 300;
