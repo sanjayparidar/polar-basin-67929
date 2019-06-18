@@ -22,10 +22,10 @@ module.exports.updateWhere=function(where, obj, collectionName, cb){
 	});
 }
 
-module.exports.findAllByLimit = function(date, collectionName, cb){
+module.exports.findAllByLimit = function(obj, collectionName, cb){
 	connection.init(function(err, client){
 		var db = client.db(config.dbName);
-		db.collection(collectionName).find(date).toArray(cb);
+		db.collection(collectionName).find({},obj).toArray(cb);
 	});
 }
 
