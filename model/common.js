@@ -61,17 +61,6 @@ module.exports.findaggregate=function(collectionName,cb){
 				foreignField: '_id',
 				as: 'category'
 			  }
-			},
-			{   $unwind:"$category" },
-	  
-			{   
-				$project:{
-					_id : 1,
-					email : 1,
-					userName : 1,
-					
-					role : "$category",
-				} 
 			}
 
 		  ]).toArray(cb);
