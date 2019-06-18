@@ -40,6 +40,8 @@ router.use('/search',require('./productseraach'));
 
 router.use('/orderhistory',require('./orderhistory'));
 
+router.use('/subcategory',require('./subcategory'));
+
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';
