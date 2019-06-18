@@ -54,7 +54,8 @@ module.exports.findaggregate=function(collectionName,cb){
 				foreignField: '_id',
 				as: 'category'
 			  }
-			}
+			},
+			{   $unwind:"$category" },
 		  ]).toArray(cb);
 	});
 }
