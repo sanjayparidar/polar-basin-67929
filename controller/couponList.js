@@ -49,8 +49,9 @@ router.post("/get",function (req, res){
 		// 	"skip": (page - 1) * 10,
 			
 		// }
-
-		coupon.findAllByLimit({'end_date': { $lte: new Date() }},'coupon', function(err, result){
+	      
+	  
+		coupon.findAllByLimit({'end_date': { $lte: new '2019-06-20'}},'coupon', function(err, result){
 			if(err){
 				data.message = 'Invalide Request';
 				data.status = 300;
