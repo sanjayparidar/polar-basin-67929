@@ -62,7 +62,7 @@ module.exports.findaggregate=function(collectionName,cb){
 				as: 'category'
 			  }
 			},
-			{   $unwind:"$category" }
+			{   $unwind:$category }
 	  
 			
 
