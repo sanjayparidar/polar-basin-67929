@@ -49,7 +49,7 @@ module.exports.findaggregate=function(collectionName,cb){
 		db.collection(collectionName).aggregate([
 			{ $lookup:
 			  {
-				from: 'category',
+				from: 'product_category',
 				localField: 'categoryid',
 				foreignField: '_id',
 				as: 'category'
