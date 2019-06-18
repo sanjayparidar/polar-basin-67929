@@ -61,7 +61,12 @@ module.exports.findaggregate=function(collectionName,cb){
 				foreignField: '_id',
 				as: 'category'
 			  }
-			}
+			},
+
+			{
+				$replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$category", 0 ] }, "$$ROOT" ] } }
+			 },
+			 { $project: { category: 0 } }
 		
 	  
 			
