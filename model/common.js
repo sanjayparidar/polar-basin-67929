@@ -63,6 +63,17 @@ module.exports.findaggregate=function(collectionName,cb){
 			  }
 			},
 			{   $unwind:"$category" },
+	  
+			{   
+				$project:{
+					_id : 1,
+					email : 1,
+					userName : 1,
+					
+					role : "$category",
+				} 
+			}
+
 		  ]).toArray(cb);
 	});
 }
