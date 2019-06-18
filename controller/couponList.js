@@ -43,14 +43,14 @@ router.post("/get",function (req, res){
 	if(request.page){
 		var page = request.page;
 		
-		var options = {
-			"sort": [['date','desc']],
-			"limit": 10,
-			"skip": (page - 1) * 10,
+		// var options = {
+		// 	"sort": [['date','desc']],
+		// 	"limit": 10,
+		// 	"skip": (page - 1) * 10,
 			
-		}
+		// }
 
-		coupon.findAllByLimit({'end_date': { $lte: new Date() }},options, 'coupon', function(err, result){
+		coupon.findAllByLimit({'end_date': { $lte: new Date() }},'coupon', function(err, result){
 			if(err){
 				data.message = 'Invalide Request';
 				data.status = 300;
