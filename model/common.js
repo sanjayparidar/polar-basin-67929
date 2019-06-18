@@ -43,6 +43,21 @@ module.exports.find=function(collectionName,cb){
 	});
 }
 
+module.exports.findaggregate=function(collectionName,cb){
+	connection.init(function(err, client){
+		var db = client.db(config.dbName);
+		db.collection(collectionName).aggregate([
+			{ $lookup:
+			  {
+				from: 'category',
+				localField: 'categoryid',
+				foreignField: '_id',
+				as: 'category'
+			  }
+			}
+		  ]).toArray(cb);
+	});
+}
 // var myquery = { address: 'Mountain 21' };
 //   dbo.collection("customers").deleteOne(myquery, function(err, obj) {
 //     if (err) throw err;
