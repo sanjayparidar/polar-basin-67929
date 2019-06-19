@@ -31,7 +31,7 @@ router.post('/find',function(req,res){
             }
             for(let j=0;j<result2.length;j++){
                 if(result[i].subcategoryid==result2[j]._id){
-                    result[i].subcategory=result1[j].subcategory
+                    result[i].subcategory=result2[j].subcategory
                 }
              }
          }
