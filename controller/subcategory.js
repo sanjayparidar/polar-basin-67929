@@ -2,6 +2,7 @@ var express=require('express');
 var router=express.Router();
 var subcategory=require('../model/common');
 var category=require('../model/common');
+var mongo =require('mongodb');
 router.post('/',function(req,res){
    subcategory.insert(req.body,'subcategory',function(err,result){
       var data={'response':"success"};
@@ -25,5 +26,9 @@ router.get('/',function(req,res){
     });
     });
 });
-
+router.post('/getsubcategoryById',function(req,res){
+   subcategory.findWhere({_id:mongo.ObjectId(req.body.id)},'subcategory',function(err,result){
+      res.send(result)
+   });
+});
 module.exports=router;
