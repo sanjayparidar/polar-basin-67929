@@ -1,5 +1,6 @@
 var connection = require('../config/connect');
 var config = require("../config/db");
+var mongo =require('mongodb')
 
 module.exports.findWhere = function(obj, collectionName, cb){
 	connection.init(function(err, client){
@@ -57,21 +58,21 @@ module.exports.findaggregate=function(collectionName,cb){
 			{ $lookup:
 			  {
 				from: 'product_category',
-				localField: 'categoryid',
+				localField: "mongo.ObjectID('categoryid')",
 				foreignField: '_id',
-				as: 'category'
+				as: 'fromItems'
 			  }
 			},
-
-			{
-				$replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$category", 0 ] }, "$$ROOT" ] } }
-			 },
-			 { $project: { category: 0 } }
-		
-	  
 			
-
-		  ]).toArray(cb);
+            
+			{
+				$replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$fromItems", 0 ] }, "$$ROOT" ] } }
+			 },
+			 { $project: { fromItems: 0 } }
+		
+	     ]).toArray(function(err,result){
+			 console.log(result)
+		 });
 	});
 }
 // var myquery = { address: 'Mountain 21' };
