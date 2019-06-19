@@ -1,7 +1,8 @@
 var express=require('express');
 var router=express.Router();
-var {today, category,subcategory} =require('../model/common');
-
+var today =require('../model/common');
+var category =require('../model/common');
+var subcategory =require('../model/common');
 router.post('/',function(req,res){
    today.insert(req.body,'todaydeal',function(err,result){
        var data={'response':'success'}
@@ -14,7 +15,7 @@ router.post('/find',function(req,res){
         "limit": 10,
         "skip": (req.body.page - 1) * 10
     }
-    today.findAllByLimit(options, 'todaydeal', function(err, result){
+    today.findAllByLimit(options,'todaydeal', function(err, result){
      
      category.find('product_category',function(err,result1){
       var result1=result1
