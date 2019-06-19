@@ -29,7 +29,7 @@ router.post('/find',function(req,res){
                    result[i].category=result1[j].category_name
                }
             }
-            for(let j=0;j<result1.length;j++){
+            for(let j=0;j<result2.length;j++){
                 if(result[i].subcategoryid==result2[j]._id){
                     result[i].subcategory=result1[j].subcategory
                 }
