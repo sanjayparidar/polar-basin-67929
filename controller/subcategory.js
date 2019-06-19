@@ -12,7 +12,7 @@ router.post('/',function(req,res){
 router.get('/',function(req,res){
     subcategory.find('subcategory',function(err,result1){
         console.log(result1)
-    category.find('category',function(err,result){
+    category.find('product_category',function(err,result){
          console.log(result);
          for(let i=0;i<result.length;i++){
             for(let j=0;j<result1.length;j++){
