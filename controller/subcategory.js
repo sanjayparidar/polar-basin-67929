@@ -17,11 +17,11 @@ router.get('/',function(req,res){
          for(let i=0;i<result.length;i++){
             for(let j=0;j<result1.length;j++){
                if(result[i]._id==result1[j].categoryid){
-                   result[j].category=result[i].category_name
+                   result1[j].category=result[i].category_name
                }
             }
          }
-         res.send(result)
+         res.send(result1)
     });
     });
 });
