@@ -42,6 +42,8 @@ router.use('/orderhistory',require('./orderhistory'));
 
 router.use('/subcategory',require('./subcategory'));
 
+router.use('/todaydeal',require('./todaydeal'));
+
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';
