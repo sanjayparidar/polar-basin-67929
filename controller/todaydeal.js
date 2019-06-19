@@ -19,9 +19,9 @@ router.post('/find',function(req,res){
     today.findAllByLimit(options,'todaydeal', function(err, result){
      
      category.find('product_category',function(err,result1){
-      var result1=result1
+      
      
-    });
+    
      subcategory.find('subcategory',function(err,result2){
         for(let i=0;i<result.length;i++){
             for(let j=0;j<result1.length;j++){
@@ -49,7 +49,7 @@ router.post('/find',function(req,res){
         }
      });
 
-
+    });
 
 
 
