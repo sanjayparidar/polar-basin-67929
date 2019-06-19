@@ -6,6 +6,7 @@ var subcategory =require('../model/common');
 router.post('/',function(req,res){
    today.insert(req.body,'todaydeal',function(err,result){
        var data={'response':'success'}
+       res.send(data)
    });
 });
 
@@ -34,12 +35,7 @@ router.post('/find',function(req,res){
                 }
              }
          }
-     });
-
-
-
-
-
+         
         if(result.length>0){
             var data={ }
             data.data = result;
@@ -51,6 +47,12 @@ router.post('/find',function(req,res){
              data.response=empty;
              res.send(data)
         }
+     });
+
+
+
+
+
     })
 })
 module.exports=router;
