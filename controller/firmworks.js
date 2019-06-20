@@ -6,7 +6,9 @@ router.post('/',function(req,res){
     console.log(req.body)
     if(req.body.type=='video'){
         workers.insert(req.body,'workers',function(err,result){
-            var data={'response':"success"}
+            var data={ };
+            data.response='success';
+            data.status=200;
             console.log('hello')
             res.send(data)     
          });
