@@ -3,9 +3,16 @@ var router=express.Router();
 var order=require('../model/common');
 var moment=require('moment');
 var mongo=require('mongodb');
+var sha1 = require('sha1');
+
 router.post('/',function(req,res){
     req.body.date =moment().format('YYYY-MM-DD HH:mm:ss');
+    
+
     req.body.orderstatus="ordered"
+    var order =req.body.userid+req.body.date;
+    req.body.order="RCW_"+sha1(order)
+    console.log(req.body)
     order.insert(req.body,'orderhistory',function(err,result){
         var obj={"response":"success"}
         res.send(obj)
