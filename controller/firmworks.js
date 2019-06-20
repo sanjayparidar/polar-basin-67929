@@ -3,8 +3,8 @@ var router=express.Router();
 var workers=require('../model/common');
 
 router.post('/',function(req,res){
-    if(req.body.type='link'){
-        workers.insert(req.body,'workers',function(err,res){
+    if(req.body.type=='link'){
+        workers.insert(req.body,'workers',function(err,result){
             var data={'response':"success"}
             res.send(data)     
          });
