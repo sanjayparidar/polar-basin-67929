@@ -10,7 +10,7 @@ router.post('/',function(req,res){
 });
 
 
-router.get('/',function(err,result){
+router.get('/',function(req,res){
     workers.find('workers',function(err,result){
         var data={ }
       if(result.length>0){
