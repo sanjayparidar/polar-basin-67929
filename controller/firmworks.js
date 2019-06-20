@@ -3,7 +3,7 @@ var router=express.Router();
 var workers=require('../model/common');
 
 router.post('/',function(req,res){
-    if(req.body.type=='link'){
+    if(req.body.type=='video'){
         workers.insert(req.body,'workers',function(err,result){
             var data={'response':"success"}
             console.log('hello')
