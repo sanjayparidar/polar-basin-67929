@@ -14,6 +14,26 @@ router.post('/',function(req,res){
          });
 
     }
+    else{
+        var file = req.files.makeproduct;
+        var newname = file.name;
+        var filepath = path.resolve("images/"+newname);
+        file.mv(filepath,function(err){
+			if(err){
+				console.log(err)
+			}
+        });
+        req.body.makeproduct=newname
+        workers.insert(req.body,'workers',function(err,result){
+            var data={ };
+            data.response='success';
+            data.status=200;
+            console.log('hello')
+            res.send(data)     
+         
+        });
+
+    }
     
 });
 
