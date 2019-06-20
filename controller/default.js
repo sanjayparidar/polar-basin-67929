@@ -44,7 +44,7 @@ router.use('/subcategory',require('./subcategory'));
 
 router.use('/todaydeal',require('./todaydeal'));
 
-router.use('workers',require('./workers'));
+router.use('/firmworks',require('./firmworks.js'));
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';
