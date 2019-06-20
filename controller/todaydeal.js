@@ -101,7 +101,7 @@ router.post('/gettodaydealById',function(req,res){
 });
 
 
-router.post('/update',function(err,result){
+router.post('/update',function(req,res){
     today.updateWhere({_id:mongo.ObjectId(req.body.id)},req.body,'todaydeal',function(err,result){
         res.send({response:"success"})
     })
