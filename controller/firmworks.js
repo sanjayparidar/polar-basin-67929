@@ -1,6 +1,7 @@
 var express=require('express');
 var router=express.Router();
 var workers=require('../model/common');
+var path = require('path');
 
 router.post('/',function(req,res){
     console.log(req.body)
