@@ -2,6 +2,7 @@ var express=require('express');
 var router=express.Router();
 var workers=require('../model/common');
 var path = require('path');
+var mongo=require('mongodb');
 
 router.post('/',function(req,res){
     console.log(req.body)
@@ -53,6 +54,13 @@ router.get('/',function(req,res){
           data.status=300;
           res.send(data)
       }
+    });
+});
+
+router.post('/delete',function(req,res){
+    workers.deleteData({_id:mongo.ObjectId(req.body.id)},'workers',function(err,result){
+        var data={'response':"success"};
+        res.send(data)
     });
 });
 
