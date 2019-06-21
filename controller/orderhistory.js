@@ -11,7 +11,7 @@ router.post('/',function(req,res){
 
     req.body.orderstatus="ordered"
     var order =req.body.userid+req.body.date;
-    req.body.order="RCW_"+sha1(order)
+    req.body.orderid="RCW_"+sha1(order)
     console.log(req.body)
     order.insert(req.body,'orderhistory',function(err,result){
         var obj={"response":"success"}
