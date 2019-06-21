@@ -44,6 +44,8 @@ router.use('/subcategory',require('./subcategory'));
 
 router.use('/todaydeal',require('./todaydeal'));
 
+router.use('couponDelete',require('./couponDelete'));
+
 router.use('/firmworks',require('./firmworks.js'));
 router.use('/',function(req, res){
 	var data={ };

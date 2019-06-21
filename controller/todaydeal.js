@@ -105,5 +105,13 @@ router.post('/update',function(req,res){
     today.updateWhere({_id:mongo.ObjectId(req.body.id)},req.body,'todaydeal',function(err,result){
         res.send({response:"success"})
     })
-})
+});
+
+
+router.post('/delete',function(req,res){
+    today.deleteData({_id:mongo.ObjectId(req.body.id)},'todaydeal',function(err,result){
+         var data={'response':"success"}
+         res.send(data)
+    });
+});
 module.exports=router;
