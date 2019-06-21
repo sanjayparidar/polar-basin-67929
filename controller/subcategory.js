@@ -31,4 +31,18 @@ router.post('/getsubcategoryById',function(req,res){
       res.send(result)
    });
 });
+
+router.post('/update',function(req,res){
+   subcategory.updateWhere({_id:mongo.ObjectId(req.body.id)},req.body,'subcategory',function(err,result){
+      var data={'response':'success'}
+      res.send(data)
+   });
+});
+
+router.post('/delete',function(req,res){
+   subcategory.deleteData({_id:mongo.ObjectId(req.body.id)},'subcategory',function(err,result){
+      var data={'response':'success'}
+      res.send(data)
+   });
+});
 module.exports=router;
