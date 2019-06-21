@@ -16,11 +16,12 @@ router.post("/",function(req, res){
 		insertData.product_name = request.product_name;
 		insertData.company_name = request.company_name;
 		insertData.description = request.description;
-		insertData.category = request.category;
 		insertData.quantity = request.quantity;
 		insertData.unit = request.unit;
 		insertData.stock_status = request.stock_status;
 		insertData.price = request.price;
+		insertData.categoryid=request.categoryid;
+		insertData.subcategoryid=request.subcategoryid;
 		insertData.date = moment().format('YYYY-MM-DD HH:mm:ss');
 		insertData.status = 0;
 		var file = req.files.image;
