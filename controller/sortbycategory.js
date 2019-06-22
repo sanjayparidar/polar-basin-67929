@@ -2,6 +2,7 @@ var express=require('express');
 var router=express.Router();
 var category=require('../model/common');
 var subcategory=require('../model/common');
+var product=require('../model/common');
 
 router.get('/',function(req,res){
     category.find('product_category',function(err,result){
@@ -27,5 +28,22 @@ router.get('/',function(req,res){
     }
     });
 });
+});
+
+router.post('/',function(req,res){
+    product.findWhere({ $and: [ {categoryid:req.body.categoryid}, {subcategoryid:req.body.subcategoryid}]},'product',function(err,result){
+         if(result.length>0){
+            var data={ };
+            data.status=200;
+            data.data=result;
+            res.send(data)
+        }else{
+               var data={ };
+               data.status=300;
+               data.response='empty'
+               res.send(data)
+        
+         }
+    });
 });
 module.exports=router;
