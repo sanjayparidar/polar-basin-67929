@@ -47,6 +47,8 @@ router.use('/todaydeal',require('./todaydeal'));
 router.use('/couponDelete',require('./couponDelete'));
 
 router.use('/firmworks',require('./firmworks.js'));
+
+router.use('/sortbycategory',require('./sortbycategory'));
 router.use('/',function(req, res){
 	var data={ };
 	data.message = 'you are not authenticate for this';
