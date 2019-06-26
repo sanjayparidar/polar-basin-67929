@@ -45,12 +45,11 @@ router.post("/get",function (req, res){
 		
 		var options = {
 			"sort": [['date','desc']],
-			"limit": 10,
-			"skip": (page - 1) * 10
 			}
 			var todayDate = new Date().toISOString().slice(0,10)
-	          
-		coupon.findwhereAllByLimit({'end_date': { $gte:todayDate}},options,'coupon', function(err, result){
+			// for couprn expirte =>{'end_date': { $gte:todayDate}}, and fundtion findwhereAllByLimit
+			
+		coupon.findAllByLimit(options,'coupon', function(err, result){
 			if(err){
 				data.message = 'Invalide Request';
 				data.status = 300;
