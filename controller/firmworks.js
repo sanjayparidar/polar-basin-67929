@@ -17,6 +17,7 @@ router.post('/',function(req,res){
 
     }
     else{
+        
         var file = req.files.makeproduct;
         var newname = file.name;
         var filepath = path.resolve("images/"+newname);
@@ -25,7 +26,7 @@ router.post('/',function(req,res){
 				console.log(err)
 			}
         });
-        req.body.makeproduct=newname
+        req.body.makeproduct="https://polar-basin-67929.herokuapp.com/"+newname
         workers.insert(req.body,'workers',function(err,result){
             var data={ };
             data.response='success';
@@ -46,6 +47,8 @@ router.get('/',function(req,res){
       if(result.length>0){
         data.response="success";
         data.status=200;
+       
+    
         data.data=result;
        res.send(data);
 
